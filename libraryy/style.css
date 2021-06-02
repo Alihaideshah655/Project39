@@ -243,3 +243,74 @@ button
 	margin-left: 15px;
 	line-height: 15px;
 }
+/*--------------------------------Management---------------------------*/
+.A_login_imgM
+{
+	background-image: url("images/1.jpg");	
+	height: 550px;
+}
+.nava1
+{
+	padding-right: 250px;
+}	
+.nava1 li 
+{
+	display: inline-block;
+	margin: 0 15px;
+	list-style: none;
+}
+.nava1 li a
+{
+	font-size: 15px;
+	color: white;
+	text-decoration: none;
+	position: relative;
+	display: block;
+	width: 90px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: black;
+	text-align: center;
+	transition: .6s;
+	box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+.ceter2
+{
+	height: 400px;
+	width: 500px;
+	background-color:#5a1107;
+	margin: 70px auto;
+	margin-top: 0px;
+	opacity: .8;
+	color: white;
+}
+.nava1 li a:hover {
+	transform: translate(0, -10px);
+	font-size: 20px;
+	background-color: white;
+	color: black;
+	width: 120px;
+}
+.navab
+{
+	padding-right: 160px;
+
+}
+.navab li a
+{
+	text-decoration: none;
+}
+.navab li
+{
+	list-style: none;
+}
+.navab li a:hover {
+	/*transform: translate(0, -10px);*/
+	font-size: 20px;
+	
+}
+.ceter2 p
+{
+		float: right;
+		margin-left: 150px; 
+}
