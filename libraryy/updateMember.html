@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Library Management System</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+	<div class="Back">
+
+	<header>
+		<div class="logo1">
+			<img src="images/9.png" width="150px">
+			<h1 style="color: white;word-spacing: 5px;">LIBRARY MANAGEMENT SYSTEM</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="Homepage.html">HOME</a></li>
+				<li><a href="book.html">BOOKS</a></li>
+				<li><a href="user_login.html">USER_LOGIN</a></li>
+				<li><a href="admin_login.html">ADMIN_LOGIN</a></li>
+				<li><a href="">FEEDBACK</a></li>
+			</ul>
+		</nav>
+		
+	</header>
+	<section>
+		<div class="sec_img">
+		<br><br><br><br>
+		<div class="ceter4">
+			<br>
+			<label style="font-size: 28px;"><i>Update Data Of a User</i></label>
+		<form name="login" action="" method="" onsubmit="return Validation2()">
+			<div class="inp3">
+				<i>(User Registration Number for data Update)</i>
+				<div><input type="name" name="regNO" placeholder="Registration Number" id="regNo" autocomplete="off"><br>
+			    <i><span id="RegNo" style="color: #ffd800"> </span></i></div>
+			    <i>(Enter the data in the following text boxes for update)</i>
+			<div><input type="name" name="memberName" placeholder="Member Name" id="memN" autocomplete="off"><br>
+			<i><span id="memberName" style="color: #ffd800"> </span></i></div>	
+			<div><input type="name" name="regNO" placeholder="Registration Number" id="regNo1" autocomplete="off"><br>
+			<i><span id="RegNo1" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="email" placeholder="Email" id="Email" autocomplete="off"><br>
+			<i><span id="email" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="Contact" placeholder="Contact Number" id="cont" autocomplete="off"><br>				
+			<i><span id="contactN" style="color: #ffd800"> </span></i></div>
+			<div class="but"><button type="submit" id="bb"><b>Update</b></button></div>
+		</div>
+		</form>
+		</div>
+		</div>
+	</section>
+	<footer>
+		<p style="color: white;text-align: center;font-size: 20px">
+			<br>
+			Email : librarian@gmail.com <br>
+			Contact : +92307-******1
+		</p>
+	</footer>
+	</div>
+	<script type="text/javascript">
+		function Validation2()
+		{
+			var memberN = document.getElementById('memN').value;
+			var regN = document.getElementById('regNo').value;
+			var email = document.getElementById('Email').value;
+			var contact = document.getElementById('cont').value;
+			var regN1 = document.getElementById('regNo1').value;
+
+			var NameCheck = /^[A-Za-z. ]{3,25}$/ ;
+			var regCheck = /^[0-9]{4}[-]{1}[A-Za-z]{2}[-]{1}[0-9A-Za-z-]{1,6}$/ ;
+			var emailCheck = /^[A-za-z0-9]{2,}[@]{1}[A-Za-z]{3,}[.]{1}[A-za-z.]{2,}$/;
+			var passCheck = /^[A-Za-z0-9. !@#$^&*%]{8,}$/ ;
+			var numCheck = /^[03]{2}[0-9]{9}$/ ;
+
+			if(regN == "")
+			{
+				document.getElementById('RegNo').innerHTML = "**Please fill Registration Number field **";
+				return false;
+			}
+			if(regCheck.test(regN))
+			{
+				document.getElementById('RegNo').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('RegNo').innerHTML = "** Reg. Number must be in the format (2020-cs-222) **";
+				return false;
+			}
+
+			if(memberN == "")
+			{
+				document.getElementById('memberName').innerHTML = "**Please fill name field **";
+				return false;
+			}
+			if(NameCheck.test(memberN))
+			{
+				document.getElementById('memberName').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('memberName').innerHTML = "** Name must be all alphabets from (3-25)words **";
+				return false;
+			}
+
+			if(regN1 == "")
+			{
+				document.getElementById('RegNo1').innerHTML = "**Please fill Registration Number field **";
+				return false;
+			}
+			if(regCheck.test(regN1))
+			{
+				document.getElementById('RegNo1').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('RegNo1').innerHTML = "** Reg. Number must be in the format (2020-cs-222) **";
+				return false;
+			}
+			
+
+			if(email == "")
+			{
+				document.getElementById('email').innerHTML = "**Please fill Email field **";
+				return false;
+			}
+			if(emailCheck.test(email))
+			{
+				document.getElementById('email').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('email').innerHTML = "** Email format ust be (***@gmail.***) **" ;
+				return false;
+			}
+
+			if(contact == "")
+			{
+				document.getElementById('contactN').innerHTML = "** Please fill Confirm Password field **";
+				return false;
+			}
+			if(numCheck.test(contact))
+			{
+				document.getElementById('contactN').innerHTML = " " ;
+			}
+			else
+			{
+				document.getElementById('contactN').innerHTML = "** Number does not match **" ;
+				return false;
+			}
+
+			if(passW == "")
+			{
+				document.getElementById('password').innerHTML = "**Please fill Password field **";
+				return false;
+			}
+			if(passCheck.test(passW))
+			{
+				document.getElementById('password').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('password').innerHTML = "** Password must be at least 8 digits **" ;
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<table>
+    <tr>
+        <td>
+            firstName
+        </td>
+        <td>
+            lastName
+        </td>
+        <td>
+            regristrationNo
+        </td>
+    </tr>
+</table>
+
+@section scripts{
+    <script>
+}
+        $.ajax({
+            url: 'https://localhost:44379/api/StudentAPI/ListStudents',
+            type: 'GET' ,
+            contentType="application/json;charset=uef-8",
+            sucess: function (response) {
+                var htmlStr = "<table>";
+                for (var i = 0; i < response.length; i++) {
+                    htmlStr += "<tr>"
+                    "<td >" + response[i].firstName + "</td>" +
+                        "<td>" + response[i].lastName + "</td>"
+                    "<td>" + response[i].regristration + "</td ></tr>"
+                }
+                htmlStr += "</table>";
+                $("#myTable").html(htmlStr);
+            }
+            error: function (data) { }
+        });
+            
+    </script>}

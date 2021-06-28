@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Library Management System</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+	<div class="Back">
+
+	<header>
+		<div class="logo1">
+			<img src="images/9.png" width="150px">
+			<h1 style="color: white;word-spacing: 5px;">LIBRARY MANAGEMENT SYSTEM</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="Homepage.html">HOME</a></li>
+				<li><a href="book.html">BOOKS</a></li>
+				<li><a href="user_login.html">USER_LOGIN</a></li>
+				<li><a href="admin_login.html">ADMIN_LOGIN</a></li>
+				<li><a href="">FEEDBACK</a></li>
+			</ul>
+		</nav>
+		
+	</header>
+	<section>
+		<div class="sec_img">
+		<br><br><br><br>
+		<div class="ceter4" style="height: 385px;">
+			<br>
+			<label style="font-size: 28px;"><i>Update Book Data</i></label>
+		<form name="login" action="" method="" onsubmit="return validation()">
+			<div class="inp3">
+				<i>(Enter Book Id of the Book to Modify Data)</i>
+			<div>
+			<input type="text" name="bookId" placeholder="Book ID" id="bookID" autocomplete="off"><br>
+			<i><span id="B ID" style="color: #ffd800" > </span></i>
+		</div>
+		<i>(Enter the modified data in the following text boxes)</i>
+		<div>
+			<input type="text" name="bookname" placeholder="Book Name" id="bookN" autocomplete="off"><br>
+			<i><span id="bookName" style="color: #ffd800" > </span></i>
+		</div>
+		<div>
+			<input type="text" name="publisherName" placeholder="Publisher Name" id="PubN" autocomplete="off"><br>
+			<i><span id="PName" style="color: #ffd800" > </span></i>
+		</div>
+		<div>
+			<input type="text" name="bookId" placeholder="Book ID" id="bookID1" autocomplete="off"><br>
+			<i><span id="B ID1" style="color: #ffd800" > </span></i>
+		</div>
+		<div>
+			<input type="text" name="bookQ" placeholder="Number Of Books" id="bookQ" autocomplete="off"><br>
+			<i><span id="BQ" style="color: #ffd800" > </span></i>
+		</div>
+			<div class="but">
+			<button type="submit" id="bb"><b>Update</button>
+		</div>
+		</form>
+		</div>
+		</div>
+	</section>
+	<footer>
+		<p style="color: white;text-align: center;font-size: 20px">
+			<br>
+			Email : librarian@gmail.com <br>
+			Contact : +92307-******1
+		</p>
+	</footer>
+	</div>
+	<script type="text/javascript">
+		 
+			function validation()
+			{
+				var book = document.getElementById('bookN').value;
+				var ID = document.getElementById('bookID').value;	
+				var pubName = document.getElementById('PubN').value;
+				var ID1 = document.getElementById('bookID1').value;
+				var Qbook = document.getElementById('bookQ').value;	
+
+				
+				var pubCheck = /^[A-Za-z. ]{3,25}$/ ;
+				var IDcheck = /[A-Za-z]{2}[0-9]{3}/ ;
+
+				if(ID == "")
+				{
+					document.getElementById('B ID').innerHTML="** Please fill book Id field **";
+					return false;
+				}
+				if(IDcheck.test(ID))
+				{
+					document.getElementById('B ID').innerHTML=" ";
+				}
+				else
+				{
+					document.getElementById('B ID').innerHTML= "** It must be in (aa222) format **";
+					return false;
+				} 
+
+				if(book == "")
+				{
+					document.getElementById('bookName').innerHTML="** Please fill book name field **";
+					return false;
+				}
+				
+				if(pubName == "")
+				{
+					document.getElementById('PName').innerHTML="** Please fill publisher name field **";
+					return false;
+				}
+				
+				if(pubCheck.test(pubName))
+				{
+					document.getElementById('PName').innerHTML=" ";
+				}
+				else
+				{
+					document.getElementById('PName').innerHTML= "** Name must be all alphabets from (3-25)words **";
+					return false;
+				}
+
+				if(ID1 == "")
+				{
+					document.getElementById('B ID1').innerHTML="** Please fill book Id field **";
+					return false;
+				}
+				if(IDcheck.test(ID))
+				{
+					document.getElementById('B ID1').innerHTML=" ";
+				}
+				else
+				{
+					document.getElementById('B ID1').innerHTML= "** It must be in (aa222) format **";
+					return false;
+				}
+
+				if(Qbook == "")
+				{
+					document.getElementById('BQ').innerHTML="** Please fill book name field **";
+					return false;
+				} 
+			}
+
+	</script>
+</body>
+</html>

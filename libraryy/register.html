@@ -22,22 +22,27 @@
 	</header>
 	<section>
 		<div class="A_login_img">
-		<br><br><br><br>
-		<div class="ceter1">
-			<br><br><br>
-		<h1 style="text-align: center;font-size: 35px;">Library Management System</h1><br><br>	
+		<br>
+		<div class="ceter1" id="Rset">
+			<br>	
 		<h1 style="text-align: center;font-size: 25px">Registration Form</h1>
-		<form name="login" action="" method="">
+		<form name="login" action="" method="" onsubmit="return Validation1()">
 			<div class="inp1">
-			<input type="name" name="firstname" placeholder="Firstname" required=""><br>
-			<input type="name" name="firstname" placeholder="Lastname" required=""><br>
-			<input type="text" name="Reg. No." placeholder="Registration number" required=""><br>
-			<input type="Email" name="email" placeholder="Email" required=""><br>
-			<input type="password" name="password" placeholder="password" required=""><br>
-			<button><b>Sign Up</button>
+			<div><input type="text" name="firstname" placeholder="Firstname" id="fName" autocomplete="off"><br>
+			<i><span id="firstname" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="lastname" placeholder="Lastname" id="lName" autocomplete="off"><br>
+			<i><span id="lastname" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="Reg. No." placeholder="Registration number" id="regNum" autocomplete="off"><br>
+			<i><span id="RegNo" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="email" placeholder="Email" id="Email" autocomplete="off"><br>
+			<i><span id="email" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="password" placeholder="Password" id="pass" autocomplete="off"><br>
+			<i><span id="password" style="color: #ffd800"> </span></i></div>
+			<div><input type="text" name="confirm" placeholder="Confirm Password" id="conPass" autocomplete="off"><br>
+			<i><span id="conpassword" style="color: #ffd800"> </span></i></div>
+			<button type="submit"><b>Sign Up</button>
 		</div>
-		</form>
-		
+		</form>		
 		</div>
 		</div>
 	</section>
@@ -49,5 +54,112 @@
 		</p>
 	</footer>
 
+	<script type="text/javascript">
+		function Validation1()
+		{
+			var firstN = document.getElementById('fName').value;
+			var lastN = document.getElementById('lName').value;
+			var regN = document.getElementById('regNum').value;
+			var email = document.getElementById('Email').value;
+			var passW = document.getElementById('pass').value;
+			var conP = document.getElementById('conPass').value;
+
+			var NameCheck = /^[A-Za-z. ]{3,25}$/ ;
+			var regCheck = /^[0-9]{4}[-]{1}[A-Za-z]{2}[-]{1}[0-9A-Za-z-]{1,6}$/ ;
+			var emailCheck = /^[A-za-z0-9]{2,}[@]{1}[A-Za-z]{3,}[.]{1}[A-za-z.]{2,}$/;
+			var passCheck = /^[A-Za-z0-9. !@#$^&*%]{8,}$/ ;
+
+			if(firstN == "")
+			{
+				document.getElementById('firstname').innerHTML = "**Please fill name field **";
+				return false;
+			}
+			if(NameCheck.test(firstN))
+			{
+				document.getElementById('firstname').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('firstname').innerHTML = "** Name must be all alphabets from (3-25)words **";
+				return false;
+			}
+
+			if(lastN == "")
+			{
+				document.getElementById('lastname').innerHTML = "**Please fill name field **";
+				return false;
+			}
+			if(NameCheck.test(lastN))
+			{
+				document.getElementById('lastname').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('lastname').innerHTML = "** Name must be all alphabets from (3-25)words **";
+				return false;
+			}
+
+			if(regN == "")
+			{
+				document.getElementById('RegNo').innerHTML = "**Please fill Registration Number field **";
+				return false;
+			}
+			if(regCheck.test(regN))
+			{
+				document.getElementById('RegNo').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('RegNo').innerHTML = "** Reg. Number must be in the format (2020-cs-222) **";
+				return false;
+			}
+			
+
+			if(email == "")
+			{
+				document.getElementById('email').innerHTML = "**Please fill Email field **";
+				return false;
+			}
+			if(emailCheck.test(email))
+			{
+				document.getElementById('email').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('email').innerHTML = "** Email format ust be (***@gmail.***) **" ;
+				return false;
+			}
+
+			if(passW == "")
+			{
+				document.getElementById('password').innerHTML = "**Please fill Password field **";
+				return false;
+			}
+			if(passCheck.test(passW))
+			{
+				document.getElementById('password').innerHTML = " ";
+			}
+			else
+			{
+				document.getElementById('password').innerHTML = "** Password must be at least 8 digits **" ;
+				return false;
+			}
+
+			if(conP == "")
+			{
+				document.getElementById('conpassword').innerHTML = "** Please fill Confirm Password field **";
+				return false;
+			}
+			if(passW == conP)
+			{
+				document.getElementById('conpassword').innerHTML = " " ;
+			}
+			else
+			{
+				document.getElementById('conpassword').innerHTML = "** Password does not match **" ;
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>

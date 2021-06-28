@@ -34,14 +34,20 @@
 		<form name="login" action="" method="" onsubmit="return validation()">
 			<div class="inp2">
 			<div>
-			<input type="text" name="bookname" placeholder="Book Name" required="" id="bookN" autocomplete="off"><br>
-			<span id="bookName" style="color: red"></span>
+			<input type="text" name="bookname" placeholder="Book Name" id="bookN" autocomplete="off"><br>
+			<i><span id="bookName" style="color: #ffd800" > </span></i>
 		</div>
 			<div>
-			<input type="text" name="publisherName" placeholder="Publisher Name" required="" id="PubN" autocomplete="off"><br>
+			<input type="text" name="publisherName" placeholder="Publisher Name" id="PubN" autocomplete="off"><br>
+			<i><span id="PName" style="color: #ffd800" > </span></i>
 		</div>
 			<div>
-			<input type="text" name="bookId" placeholder="Book ID" required="" id="bookID" autocomplete="off"><br>
+			<input type="text" name="bookId" placeholder="Book ID" id="bookID" autocomplete="off"><br>
+			<i><span id="B ID" style="color: #ffd800" > </span></i>
+		</div>
+		<div>
+			<input type="text" name="bookQ" placeholder="Number Of Books" id="bookQ" autocomplete="off"><br>
+			<i><span id="BQ" style="color: #ffd800" > </span></i>
 		</div>
 			<button type="submit"><b>Add</button>
 		</div>
@@ -62,9 +68,53 @@
 			function validation()
 			{
 				var book = document.getElementById('bookN').value;
-				if(book = "")
+				var pubName = document.getElementById('PubN').value;
+				var ID = document.getElementById('bookID').value;
+				var Qbook = document.getElementById('bookQ').value;	
+
+				var pubCheck = /^[A-Za-z. ]{3,25}$/ ;
+				var IDcheck = /[A-Za-z]{2}[0-9]{3}/ ;
+
+				if(book == "")
 				{
-					document.getElementById('bookName').innerHTML="**Please fill "
+					document.getElementById('bookName').innerHTML="** Please fill book name field **";
+					return false;
+				}
+
+				if(pubName == "")
+				{
+					document.getElementById('PName').innerHTML="** Please fill publisher name field **";
+					return false;
+				}
+				
+				if(pubCheck.test(pubName))
+				{
+					document.getElementById('PName').innerHTML=" ";
+				}
+				else
+				{
+					document.getElementById('PName').innerHTML= "** Name must be all alphabets from (3-25)words **";
+					return false;
+				}
+
+				if(ID == "")
+				{
+					document.getElementById('B ID').innerHTML="** Please fill book Id field **";
+					return false;
+				}
+				if(IDcheck.test(ID))
+				{
+					document.getElementById('B ID').innerHTML=" ";
+				}
+				else
+				{
+					document.getElementById('B ID').innerHTML= "** It must be in (aa222) format **";
+					return false;
+				}
+				if(Qbook == "")
+				{
+					document.getElementById('BQ').innerHTML="** Please fill book name field **";
+					return false;
 				}
 
 			}

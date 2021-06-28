@@ -1,0 +1,38 @@
+﻿firstName:
+<input type="text" id="firstName" />
+<br />
+lastName:
+<input type="text" id="lastName" />
+<br />
+regristrationNo:
+<input type="text" id="regristrationNo" />
+<br />
+<button onclick= "saveData" >Add Student</button>
+
+@section scripts{
+    <script>
+        function saveData() {
+            var fname = $("#firstName").val();
+            var lname = $("#lastName").val();
+            var regNo = $("#regristrationNo").val();
+            var obj = {
+                firstName=fname,
+                lastName=lname,
+                regristrationNo=regNo
+            }
+            console.log(obj);
+
+            $.ajax({
+                url: 'https://localhost:44379/api/StudentAPI/AddStudent',
+                type:'Post',
+                data:JSON.stringify(obj),
+                contentType:"application/json;charset=uef-8",
+                success: function (response) {
+                    alert(response);
+                },
+                error: function (data) {
+                }
+            });
+        }
+    </script>
+}
